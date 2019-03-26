@@ -1,0 +1,361 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Discuz! Board 管理中心</title>
+    <meta content="Comsenz Inc." name="Copyright" />
+    <link rel="stylesheet" href="static/image/admincp/admincp.css?Aaz" type="text/css" media="all" />
+    <script src="static/js/common.js?Aaz" type="text/javascript"></script>
+</head>
+<body style="margin: 0px" scroll="no">
+<div id="append_parent"></div>
+
+<table id="frametable" cellpadding="0" cellspacing="0" width="100%" height="100%">
+    <tr>
+        <td colspan="2" height="90">
+            <div class="mainhd">
+                <a href="admin.php?frames=yes&action=index" class="logo">Discuz! Administrator's Control Panel</a>
+                <div class="uinfo" id="frameuinfo">
+                    <p>您好,  <em>admin</em> [<a href="admin.php?action=logout" target="_top">退出</a>]</p>
+                    <p class="btnlink"><a href="index.php" target="_blank">站点首页</a></p>
+                </div>
+                <div class="navbg"></div>
+                <div class="nav">
+                    <ul id="topmenu">
+                        <li><em><a href="admin.php?action=index" id="header_index" hidefocus="true" onmouseover="previewheader('index')" onmouseout="previewheader()" onclick="toggleMenu('index', 'index');doane(event);">首页</a></em></li><li><em><a href="admin.php?action=setting&operation=basic" id="header_global" hidefocus="true" onmouseover="previewheader('global')" onmouseout="previewheader()" onclick="toggleMenu('global', 'setting&operation=basic');doane(event);">全局</a></em></li><li><em><a href="admin.php?action=nav" id="header_style" hidefocus="true" onmouseover="previewheader('style')" onmouseout="previewheader()" onclick="toggleMenu('style', 'nav');doane(event);">界面</a></em></li><li><em><a href="admin.php?action=moderate" id="header_topic" hidefocus="true" onmouseover="previewheader('topic')" onmouseout="previewheader()" onclick="toggleMenu('topic', 'moderate');doane(event);">内容</a></em></li><li><em><a href="admin.php?action=members&operation=search" id="header_user" hidefocus="true" onmouseover="previewheader('user')" onmouseout="previewheader()" onclick="toggleMenu('user', 'members&operation=search');doane(event);">用户</a></em></li><li><em><a href="admin.php?action=portalcategory" id="header_portal" hidefocus="true" onmouseover="previewheader('portal')" onmouseout="previewheader()" onclick="toggleMenu('portal', 'portalcategory');doane(event);">门户</a></em></li><li><em><a href="admin.php?action=forums" id="header_forum" hidefocus="true" onmouseover="previewheader('forum')" onmouseout="previewheader()" onclick="toggleMenu('forum', 'forums');doane(event);">论坛</a></em></li><li><em><a href="admin.php?action=group&operation=setting" id="header_group" hidefocus="true" onmouseover="previewheader('group')" onmouseout="previewheader()" onclick="toggleMenu('group', 'group&operation=setting');doane(event);">群组</a></em></li><li><em><a href="admin.php?action=setting&operation=sec" id="header_safe" hidefocus="true" onmouseover="previewheader('safe')" onmouseout="previewheader()" onclick="toggleMenu('safe', 'setting&operation=sec');doane(event);">防灌水</a></em></li><li><em><a href="admin.php?action=announce" id="header_extended" hidefocus="true" onmouseover="previewheader('extended')" onmouseout="previewheader()" onclick="toggleMenu('extended', 'announce');doane(event);">运营</a></em></li><li><em><a href="admin.php?action=plugins" id="header_plugin" hidefocus="true" onmouseover="previewheader('plugin')" onmouseout="previewheader()" onclick="toggleMenu('plugin', 'plugins');doane(event);">应用</a></em></li><li><em><a href="admin.php?action=tools&operation=updatecache" id="header_tools" hidefocus="true" onmouseover="previewheader('tools')" onmouseout="previewheader()" onclick="toggleMenu('tools', 'tools&operation=updatecache');doane(event);">工具</a></em></li><li><em><a href="admin.php?action=founder&operation=perm" id="header_founder" hidefocus="true" onmouseover="previewheader('founder')" onmouseout="previewheader()" onclick="toggleMenu('founder', 'founder&operation=perm');doane(event);">站长</a></em></li><li><em><a id="header_uc" hidefocus="true" href="http://discuz.liuqiqi.com/uc_server/admin.php?m=frame" onmouseover="previewheader('uc')" onmouseout="previewheader()" onclick="uc_login=1;toggleMenu('uc', '');doane(event);">UCenter</a></em></li>
+                    </ul>
+                    <div class="currentloca">
+                        <p id="admincpnav"></p>
+                    </div>
+                    <div class="navbd"></div>
+                    <div class="sitemapbtn">
+                        <div style="float: left; margin:-7px 10px 0 0"><form name="search" method="post" autocomplete="off" action="admin.php?action=search" target="main"><input type="text" name="keywords" value="" class="txt" x-webkit-speech speech /> <input type="hidden" name="searchsubmit" value="yes" class="btn" /><input type="submit" name="searchsubmit" value="搜索" class="btn" style="margin-top: 5px;vertical-align:middle" /></form></div>
+                        <span id="add2custom" style="display: none"></span>
+                        <a href="###" id="cpmap" onclick="showMap();return false;"><img src="static/image/admincp/btn_map.gif" title="管理中心导航(ESC键)" width="46" height="18" /></a>
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td valign="top" width="160" class="menutd">
+            <div id="leftmenu" class="menu">
+                <ul id="menu_index" style="display: none"><li><a href="admin.php?action=index" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>管理中心首页</a></li><li><a href="admin.php?action=misc&operation=custommenu" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>常用操作管理</a></li></ul><ul id="menu_global" style="display: none"><li><a href="admin.php?action=setting&operation=basic" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>站点信息</a></li><li><a href="admin.php?action=setting&operation=access" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>注册与访问控制</a></li><li><a href="admin.php?action=setting&operation=functions" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>站点功能</a></li><li><a href="admin.php?action=setting&operation=cachethread" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>性能优化</a></li><li><a href="admin.php?action=setting&operation=seo" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>SEO设置</a></li><li><a href="admin.php?action=domain" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>域名设置</a></li><li><a href="admin.php?action=setting&operation=follow" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>广播设置</a></li><li><a href="admin.php?action=setting&operation=home" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>空间设置</a></li><li><a href="admin.php?action=setting&operation=permissions" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>用户权限</a></li><li><a href="admin.php?action=setting&operation=credits" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>积分设置</a></li><li><a href="admin.php?action=setting&operation=datetime" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>时间设置</a></li><li><a href="admin.php?action=setting&operation=attach" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>上传设置</a></li><li><a href="admin.php?action=setting&operation=imgwater" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>水印设置</a></li><li><a href="admin.php?action=misc&operation=attachtype" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>附件类型尺寸</a></li><li><a href="admin.php?action=setting&operation=search" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>搜索设置</a></li><li><a href="admin.php?action=district" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>地区设置</a></li><li><a href="admin.php?action=setting&operation=ranklist" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>排行榜设置</a></li><li><a href="admin.php?action=setting&operation=mobile" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>手机版访问设置</a></li><li><a href="admin.php?action=setting&operation=antitheft" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>防采集设置</a></li></ul><ul id="menu_style" style="display: none"><li><a href="admin.php?action=nav" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>导航设置</a></li><li><a href="admin.php?action=setting&operation=styles" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>界面设置</a></li><li><a href="admin.php?action=styles" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>风格管理</a></li><li><a href="admin.php?action=templates" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>模板管理</a></li><li><a href="admin.php?action=smilies" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>表情管理</a></li><li><a href="admin.php?action=click" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>表态动作</a></li><li><a href="admin.php?action=misc&operation=stamp" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>主题鉴定</a></li><li><a href="admin.php?action=setting&operation=editor" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>编辑器设置</a></li><li><a href="admin.php?action=misc&operation=onlinelist" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>在线列表图标</a></li></ul><ul id="menu_topic" style="display: none"><li><a href="admin.php?action=moderate" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>内容审核</a></li><li><a href="admin.php?action=misc&operation=censor" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>词语过滤</a></li><li><a href="admin.php?action=report" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>用户举报</a></li><li><a href="admin.php?action=tag" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>标签管理</a></li><li><a href="admin.php?action=collection" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>淘帖管理</a></li><li class="s"><div class="lsub desc" subid="Ma5f625b2"><div onclick="lsub('Ma5f625b2', this.parentNode)">论坛</div><ol style="display:" id="Ma5f625b2"><li><a href="admin.php?action=threads" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>论坛主题管理</a></li><li><a href="admin.php?action=prune" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>论坛批量删帖</a></li><li><a href="admin.php?action=attach" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>论坛附件管理</a></li><li class="sp"></li></ol></div></li><li class="s"><div class="lsub desc" subid="M4b0ab7ba"><div onclick="lsub('M4b0ab7ba', this.parentNode)">群组</div><ol style="display:" id="M4b0ab7ba"><li><a href="admin.php?action=threads&operation=group" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>群组主题管理</a></li><li><a href="admin.php?action=prune&operation=group" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>群组批量删帖</a></li><li><a href="admin.php?action=attach&operation=group" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>群组附件管理</a></li><li class="sp"></li></ol></div></li><li class="s"><div class="lsub desc" subid="M9970ad07"><div onclick="lsub('M9970ad07', this.parentNode)">主题</div><ol style="display:" id="M9970ad07"><li><a href="admin.php?action=recyclebin" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>主题回收站</a></li><li><a href="admin.php?action=recyclebinpost" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>回帖回收站</a></li><li><a href="admin.php?action=threads&operation=forumstick" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>版块/群组置顶</a></li><li><a href="admin.php?action=postcomment" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>帖子点评管理</a></li><li class="sp"></li></ol></div></li><li class="s"><div class="lsub desc" subid="M722188b8"><div onclick="lsub('M722188b8', this.parentNode)">家园</div><ol style="display:" id="M722188b8"><li><a href="admin.php?action=doing" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>记录管理</a></li><li><a href="admin.php?action=blog" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>日志管理</a></li><li><a href="admin.php?action=blogrecyclebin" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>日志回收站</a></li><li><a href="admin.php?action=feed" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>动态管理</a></li><li><a href="admin.php?action=album" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>相册管理</a></li><li><a href="admin.php?action=pic" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>图片管理</a></li><li><a href="admin.php?action=comment" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>评论/留言管理</a></li><li><a href="admin.php?action=share" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>分享管理</a></li><li class="sp"></li></ol></div></li></ul><ul id="menu_user" style="display: none"><li><a href="admin.php?action=members&operation=search" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>用户管理</a></li><li><a href="admin.php?action=members&operation=add" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>添加用户</a></li><li><a href="admin.php?action=members&operation=profile" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>用户栏目</a></li><li><a href="admin.php?action=members&operation=stat" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>资料统计</a></li><li><a href="admin.php?action=members&operation=newsletter" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>发送通知</a></li><li><a href="admin.php?action=members&operation=newsletter&do=mobile" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>发送手机通知</a></li><li><a href="admin.php?action=usertag" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>用户标签</a></li><li><a href="admin.php?action=members&operation=ban" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>禁止用户</a></li><li><a href="admin.php?action=members&operation=ipban" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>禁止 IP</a></li><li><a href="admin.php?action=members&operation=reward" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>积分奖惩</a></li><li><a href="admin.php?action=moderate&operation=members" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>审核用户</a></li><li><a href="admin.php?action=admingroup" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>管理组</a></li><li><a href="admin.php?action=usergroups" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>用户组</a></li><li><a href="admin.php?action=specialuser&operation=follow" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>推荐关注</a></li><li><a href="admin.php?action=specialuser&operation=defaultuser" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>推荐好友</a></li><li><a href="admin.php?action=verify&operation=verify" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>资料审核</a></li><li><a href="admin.php?action=verify" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>认证设置</a></li></ul><ul id="menu_portal" style="display: none"><li><a href="admin.php?action=portalcategory" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>频道栏目</a></li><li><a href="admin.php?action=article" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>文章管理</a></li><li><a href="admin.php?action=topic" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>专题管理</a></li><li><a href="admin.php?action=makehtml" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>HTML管理</a></li><li><a href="admin.php?action=diytemplate" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>页面管理</a></li><li><a href="admin.php?action=block" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>模块管理</a></li><li><a href="admin.php?action=blockstyle" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>模块模板</a></li><li><a href="admin.php?action=blockxml" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>第三方模块</a></li><li><a href="admin.php?action=portalpermission" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>权限列表</a></li><li><a href="admin.php?action=blogcategory" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>日志分类</a></li><li><a href="admin.php?action=albumcategory" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>相册分类</a></li></ul><ul id="menu_forum" style="display: none"><li><a href="admin.php?action=forums" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>版块管理</a></li><li><a href="admin.php?action=forums&operation=merge" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>版块合并</a></li><li><a href="admin.php?action=threadtypes" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>分类信息</a></li><li><a href="admin.php?action=grid" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>首页四格</a></li></ul><ul id="menu_group" style="display: none"><li><a href="admin.php?action=group&operation=setting" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>群组设置</a></li><li><a href="admin.php?action=group&operation=type" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>群组分类</a></li><li><a href="admin.php?action=group&operation=manage" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>群组管理</a></li><li><a href="admin.php?action=group&operation=userperm" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>群主权限</a></li><li><a href="admin.php?action=group&operation=level" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>群组等级</a></li><li><a href="admin.php?action=group&operation=mod" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>审核群组</a></li></ul><ul id="menu_safe" style="display: none"><li><a href="admin.php?action=setting&operation=sec" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>基本设置</a></li><li><a href="admin.php?action=setting&operation=seccheck" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>验证设置</a></li><li><a href="admin.php?action=optimizer&operation=security" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>安全大师</a></li><li><a href="admin.php?action=setting&operation=accountguard" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>帐号保镖</a></li></ul><ul id="menu_extended" style="display: none"><li><a href="admin.php?action=announce" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>站点公告</a></li><li><a href="admin.php?action=adv" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>站点广告</a></li><li><a href="admin.php?action=tasks" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>站点任务</a></li><li><a href="admin.php?action=magics" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>道具中心</a></li><li><a href="admin.php?action=medals" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>勋章中心</a></li><li><a href="admin.php?action=faq" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>站点帮助</a></li><li><a href="admin.php?action=setting&operation=ec" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>电子商务</a></li><li><a href="admin.php?action=misc&operation=link" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>友情链接</a></li><li><a href="admin.php?action=misc&operation=focus" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>站长推荐</a></li><li><a href="admin.php?action=misc&operation=relatedlink" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>关联链接</a></li><li><a href="admin.php?action=card" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>充值卡密</a></li></ul><ul id="menu_plugin" style="display: none"><li><a href="admin.php?action=cloudaddons" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>应用中心</a></li><li><a href="admin.php?action=plugins" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>插件</a></li></ul><ul id="menu_tools" style="display: none"><li><a href="admin.php?action=tools&operation=updatecache" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>更新缓存</a></li><li><a href="admin.php?action=counter" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>更新统计</a></li><li><a href="admin.php?action=logs" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>运行记录</a></li><li><a href="admin.php?action=misc&operation=cron" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>计划任务</a></li><li><a href="admin.php?action=tools&operation=fileperms" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>文件权限检查</a></li><li><a href="admin.php?action=checktools&operation=filecheck" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>文件校验</a></li><li><a href="admin.php?action=checktools&operation=hookcheck" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>嵌入点校验</a></li></ul><ul id="menu_founder" style="display: none"><li><a href="admin.php?action=founder&operation=perm" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>后台管理团队</a></li><li><a href="admin.php?action=setting&operation=mail" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>邮件设置</a></li><li><a href="admin.php?action=setting&operation=uc" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>UCenter 设置</a></li><li><a href="admin.php?action=db&operation=export" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>数据库</a></li><li><a href="admin.php?action=membersplit&operation=check" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>用户表优化</a></li><li><a href="admin.php?action=postsplit&operation=manage" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>帖子分表</a></li><li><a href="admin.php?action=threadsplit&operation=manage" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>主题分表</a></li><li><a href="admin.php?action=optimizer&operation=performance" hidefocus="true" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>优化大师</a></li></ul><ul id="menu_uc" style="display: none"></ul>
+            </div>
+        </td>
+        <td valign="top" width="100%" class="mask">
+            <iframe src="admin.php?action=index" id="main" name="main" width="100%" height="100%" frameborder="0" scrolling="yes" style="overflow: visible;display:"></iframe>
+        </td>
+    </tr>
+</table>
+<div id="scrolllink" style="display: none">
+    <span onclick="menuScroll(1)"><img src="static/image/admincp/scrollu.gif" /></span><span onclick="menuScroll(2)"><img src="static/image/admincp/scrolld.gif" /></span>
+</div>
+<div class="copyright">
+    <p>Powered by <a href="http://www.discuz.net/" target="_blank">Discuz!</a> X3.4</p>
+    <p>&copy; 2001-2017, <a href="http://www.comsenz.com/" target="_blank">Comsenz Inc.</a></p>
+</div>
+
+<div id="cpmap_menu" class="custom" style="display: none">
+    <div class="cmain" id="cmain"></div>
+    <div class="cfixbd"></div>
+</div>
+
+<script type="text/JavaScript">
+    var cookiepre = 'XQra_2132_', cookiedomain = '', cookiepath = '/';
+    var headers = new Array('index','global','style','topic','user','portal','forum','group','safe','extended','plugin','tools','founder','uc'), admincpfilename = 'admin.php', menukey = '';
+    function switchheader(key) {
+        if(!key || !$('header_' + key)) {
+            return;
+        }
+        for(var k in top.headers) {
+            if($('menu_' + headers[k])) {
+                $('menu_' + headers[k]).style.display = headers[k] == key ? '' : 'none';
+            }
+        }
+        var lis = $('topmenu').getElementsByTagName('li');
+        for(var i = 0; i < lis.length; i++) {
+            if(lis[i].className == 'navon') lis[i].className = '';
+        }
+        $('header_' + key).parentNode.parentNode.className = 'navon';
+    }
+    var headerST = null;
+    function previewheader(key) {
+        if(key) {
+            headerST = setTimeout(function() {
+                for(var k in top.headers) {
+                    if($('menu_' + headers[k])) {
+                        $('menu_' + headers[k]).style.display = headers[k] == key ? '' : 'none';
+                    }
+                }
+                var hrefs = $('menu_' + key).getElementsByTagName('a');
+                for(var j = 0; j < hrefs.length; j++) {
+                    hrefs[j].className = '';
+                }
+            }, 1000);
+        } else {
+            clearTimeout(headerST);
+        }
+    }
+    function toggleMenu(key, url) {
+        menukey = key;
+        switchheader(key);
+        if(url) {
+            parent.main.location = admincpfilename + '?action=' + url;
+            var hrefs = $('menu_' + key).getElementsByTagName('a');
+            for(var j = 0; j < hrefs.length; j++) {
+                hrefs[j].className = j == (key == 'plugin' ? 1 : 0) ? 'tabon' : '';
+            }
+        }
+        if(key == 'uc') {
+            parent.main.location = $('header_uc').href + '&a=main&iframe=1';
+        }
+        setMenuScroll();
+    }
+    function setMenuScroll() {
+        $('frametable').style.width = document.body.offsetWidth < 1000 ? '1000px' : '100%';
+        var obj = $('menu_' + menukey);
+        if(!obj) {
+            return;
+        }
+        var scrollh = document.body.offsetHeight - 160;
+        obj.style.overflow = 'visible';
+        obj.style.height = '';
+        $('scrolllink').style.display = 'none';
+        if(obj.offsetHeight + 150 > document.body.offsetHeight && scrollh > 0) {
+            obj.style.overflow = 'hidden';
+            obj.style.height = scrollh + 'px';
+            $('scrolllink').style.display = '';
+        }
+    }
+    function resizeHeadermenu() {
+        var lis = $('topmenu').getElementsByTagName('li');
+        var maxsize = $('frameuinfo').offsetLeft - 160, widths = 0, moi = -1, mof = '';
+        if($('menu_mof')) {
+            $('topmenu').removeChild($('menu_mof'));
+        }
+        if($('menu_mof_menu')) {
+            $('append_parent').removeChild($('menu_mof_menu'));
+        }
+        for(var i = 0; i < lis.length; i++) {
+            widths += lis[i].offsetWidth;
+            if(widths > maxsize) {
+                lis[i].style.visibility = 'hidden';
+                var sobj = lis[i].childNodes[0].childNodes[0];
+                if(sobj) {
+                    mof += '<a href="'+ sobj.getAttribute('href') + '" onclick="$(\'' + sobj.id + '\').onclick()">&rsaquo; ' + sobj.innerHTML + '</a><br style="clear:both" />';
+                }
+            } else {
+                lis[i].style.visibility = 'visible';
+            }
+        }
+        if(mof) {
+            for(var i = 0; i < lis.length; i++) {
+                if(lis[i].style.visibility == 'hidden') {
+                    moi = i;
+                    break;
+                }
+            }
+            mofli = document.createElement('li');
+            mofli.innerHTML = '<em><a href="javascript:;">&raquo;</a></em>';
+            mofli.onmouseover = function () { showMenu({'ctrlid':'menu_mof','pos':'43'}); }
+            mofli.id = 'menu_mof';
+            $('topmenu').insertBefore(mofli, lis[moi]);
+            mofmli = document.createElement('li');
+            mofmli.className = 'popupmenu_popup';
+            mofmli.style.width = '150px';
+            mofmli.innerHTML = mof;
+            mofmli.id = 'menu_mof_menu';
+            mofmli.style.display = 'none';
+            $('append_parent').appendChild(mofmli);
+        }
+    }
+    function menuScroll(op, e) {
+        var obj = $('menu_' + menukey);
+        var scrollh = document.body.offsetHeight - 160;
+        if(op == 1) {
+            obj.scrollTop = obj.scrollTop - scrollh;
+        } else if(op == 2) {
+            obj.scrollTop = obj.scrollTop + scrollh;
+        } else if(op == 3) {
+            if(!e) e = window.event;
+            if(e.wheelDelta <= 0 || e.detail > 0) {
+                obj.scrollTop = obj.scrollTop + 20;
+            } else {
+                obj.scrollTop = obj.scrollTop - 20;
+            }
+        }
+    }
+    function menuNewwin(obj) {
+        var href = obj.parentNode.href;
+        if(obj.parentNode.href.indexOf(admincpfilename + '?') != -1) {
+            href += '&frames=yes';
+        }
+        window.open(href);
+        doane();
+    }
+    function initCpMenus(menuContainerid) {
+        var key = '', lasttabon1 = null, lasttabon2 = null, hrefs = $(menuContainerid).getElementsByTagName('a');
+        for(var i = 0; i < hrefs.length; i++) {
+            if(menuContainerid == 'leftmenu' && 'action=index'.indexOf(hrefs[i].href.substr(hrefs[i].href.indexOf(admincpfilename + '?') + admincpfilename.length + 1)) != -1) {
+                if(lasttabon1) {
+                    lasttabon1.className = '';
+                }
+                if(hrefs[i].parentNode.parentNode.tagName == 'OL') {
+                    hrefs[i].parentNode.parentNode.style.display = '';
+                    hrefs[i].parentNode.parentNode.parentNode.className = 'lsub desc';
+                    key = hrefs[i].parentNode.parentNode.parentNode.parentNode.parentNode.id.substr(5);
+                } else {
+                    key = hrefs[i].parentNode.parentNode.id.substr(5);
+                }
+                hrefs[i].className = 'tabon';
+                lasttabon1 = hrefs[i];
+            }
+            if(!hrefs[i].getAttribute('ajaxtarget')) hrefs[i].onclick = function() {
+                if(menuContainerid != 'custommenu') {
+                    var lis = $(menuContainerid).getElementsByTagName('li');
+                    for(var k = 0; k < lis.length; k++) {
+                        if(lis[k].firstChild && lis[k].firstChild.className != 'menulink') {
+                            if(lis[k].firstChild.tagName != 'DIV') {
+                                lis[k].firstChild.className = '';
+                            } else {
+                                var subid = lis[k].firstChild.getAttribute('sid');
+                                if(subid) {
+                                    var sublis = $(subid).getElementsByTagName('li');
+                                    for(var ki = 0; ki < sublis.length; ki++) {
+                                        if(sublis[ki].firstChild && sublis[ki].firstChild.className != 'menulink') {
+                                            sublis[ki].firstChild.className = '';
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    if(this.className == '') this.className = menuContainerid == 'leftmenu' ? 'tabon' : '';
+                }
+                if(menuContainerid != 'leftmenu') {
+                    var hk, currentkey;
+                    var leftmenus = $('leftmenu').getElementsByTagName('a');
+                    for(var j = 0; j < leftmenus.length; j++) {
+                        if(leftmenus[j].parentNode.parentNode.tagName == 'OL') {
+                            hk = leftmenus[j].parentNode.parentNode.parentNode.parentNode.parentNode.id.substr(5);
+                        } else {
+                            hk = leftmenus[j].parentNode.parentNode.id.substr(5);
+                        }
+                        if(this.href.indexOf(leftmenus[j].href) != -1) {
+                            if(lasttabon2) {
+                                lasttabon2.className = '';
+                            }
+                            leftmenus[j].className = 'tabon';
+                            if(leftmenus[j].parentNode.parentNode.tagName == 'OL') {
+                                leftmenus[j].parentNode.parentNode.style.display = '';
+                                leftmenus[j].parentNode.parentNode.parentNode.className = 'lsub desc';
+                            }
+                            lasttabon2 = leftmenus[j];
+                            if(hk != 'index') currentkey = hk;
+                        } else {
+                            leftmenus[j].className = '';
+                        }
+                    }
+                    if(currentkey) toggleMenu(currentkey);
+                    hideMenu();
+                }
+            }
+        }
+        return key;
+    }
+    function lsub(id, obj) {
+        display(id);
+        obj.className = obj.className != 'lsub' ? 'lsub' : 'lsub desc';
+        if(obj.className != 'lsub') {
+            setcookie('cpmenu_' + id, '');
+        } else {
+            setcookie('cpmenu_' + id, 1, 31536000);
+        }
+        setMenuScroll();
+    }
+    var header_key = initCpMenus('leftmenu');
+    toggleMenu(header_key ? header_key : 'index');
+    function initCpMap() {
+        var ul, hrefs, s = '', count = 0;
+        for(var k in headers) {
+            if(headers[k] != 'index' && headers[k] != 'uc' && $('header_' + headers[k])) {
+                s += '<tr><td valign="top"><h4>' + $('header_' + headers[k]).innerHTML + '</h4></td><td valign="top">';
+                ul = $('menu_' + headers[k]);
+                if(!ul) {
+                    continue;
+                }
+                hrefs = ul.getElementsByTagName('a');
+                for(var i = 0; i < hrefs.length; i++) {
+                    s += '<a href="' + hrefs[i].href + '" target="' + hrefs[i].target + '" k="' + headers[k] + '">' + hrefs[i].innerHTML + '</a>';
+                }
+                s += '</td></tr>';
+                count++;
+            }
+        }
+        var width = 720;
+        s = '<div class="cnote" style="width:' + width + 'px"><span class="right"><a href="###" class="flbc" onclick="hideMenu();return false;"></a></span><h3>管理中心导航</h3></div>' +
+            '<div class="cmlist" style="width:' + width + 'px;height: 410px"><table id="mapmenu" cellspacing="0" cellpadding="0">' + s +
+            '</table></div>';
+        $('cmain').innerHTML = s;
+        $('cmain').style.width = (width > 1000 ? 1000 : width) + 'px';
+    }
+    initCpMap();
+    initCpMenus('mapmenu');
+    var cmcache = false;
+    function showMap() {
+        showMenu({'ctrlid':'cpmap','evt':'click', 'duration':3, 'pos':'00'});
+    }
+    function resetEscAndF5(e) {
+        e = e ? e : window.event;
+        actualCode = e.keyCode ? e.keyCode : e.charCode;
+        if(actualCode == 27) {
+            if($('cpmap_menu').style.display == 'none') {
+                showMap();
+            } else {
+                hideMenu();
+            }
+        }
+        if(actualCode == 116 && parent.main) {
+            parent.main.location.reload();
+            if(document.all) {
+                e.keyCode = 0;
+                e.returnValue = false;
+            } else {
+                e.cancelBubble = true;
+                e.preventDefault();
+            }
+        }
+    }
+    function uc_left_menu(uc_menu_data) {
+        var leftmenu = $('menu_uc');
+        leftmenu.innerHTML = '';
+        var html_str = '';
+        for(var i=0;i<uc_menu_data.length;i+=2) {
+            html_str += '<li><a href="'+uc_menu_data[(i+1)]+'" hidefocus="true" onclick="uc_left_switch(this)" target="main"><em onclick="menuNewwin(this)" title="新窗口打开"></em>'+uc_menu_data[i]+'</a></li>';
+        }
+        leftmenu.innerHTML = html_str;
+    }
+    var uc_left_last = null;
+    function uc_left_switch(obj) {
+        if(uc_left_last) {
+            uc_left_last.className = '';
+        }
+        obj.className = 'tabon';
+        uc_left_last = obj;
+    }
+    function uc_modify_sid(sid) {
+        $('header_uc').href = 'http://discuz.liuqiqi.com/uc_server/admin.php?m=frame';
+    }
+
+    _attachEvent(document.documentElement, 'keydown', resetEscAndF5);
+    _attachEvent(window, 'resize', setMenuScroll, document);
+    _attachEvent(window, 'resize', resizeHeadermenu, document);
+    if(BROWSER.ie){
+        $('leftmenu').onmousewheel = function(e) { menuScroll(3, e) };
+    } else {
+        $('leftmenu').addEventListener("DOMMouseScroll", function(e) { menuScroll(3, e) }, false);
+    }
+    resizeHeadermenu();
+</script>
+</body>
+</html>
